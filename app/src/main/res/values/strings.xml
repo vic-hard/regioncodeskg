@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">RegionCodesKg</string>
+    <string name="new_numbers_title">From June 1, 2016</string>
+    <string name="old_numbers_title">1994–2016</string>
+    <string name="diplomatic_numbers_title">Diplomatic numbers</string>
+    <string name="app_title">Kyrgyzstan region codes</string>
 </resources>
