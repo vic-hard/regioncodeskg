@@ -46,6 +46,7 @@ fun RegionCodesNavDrawer(
         ModalDrawerSheet {
             DrawerContent(items = drawerItems, onItemClicked = { destination ->
                 navController.navigate(destination)
+                scope.launch { drawerState.close() }
             })
         }
     }, drawerState = drawerState) {
