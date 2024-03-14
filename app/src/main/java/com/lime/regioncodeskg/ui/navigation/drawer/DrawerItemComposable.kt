@@ -4,8 +4,8 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -24,12 +24,11 @@ fun DrawerItemComposable(
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .clickable { onItemClicked(item.route) }
-            .padding(8.dp),
+            .clickable { onItemClicked(item.route) },
         verticalAlignment = Alignment.CenterVertically
     ) {
         Icon(imageVector = ImageVector.vectorResource(item.iconResId), contentDescription = null)
         Spacer(modifier = Modifier.width(8.dp))
-        Text(text = stringResource(id = item.titleResId))
+        Text(text = stringResource(id = item.titleResId), modifier = Modifier.wrapContentWidth())
     }
 }

@@ -5,26 +5,15 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Menu
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.rememberNavController
 import com.lime.regioncodeskg.MainViewModel
-import com.lime.regioncodeskg.R
-import com.lime.regioncodeskg.ui.navigation.NavRoutes
-import com.lime.regioncodeskg.ui.navigation.RegionCodesNavHost
+import com.lime.regioncodeskg.ui.navigation.RegionCodesNavDrawer
 import com.lime.regioncodeskg.ui.navigation.drawer.DrawerItem
 import com.lime.regioncodeskg.ui.theme.RegionCodesKgTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -34,7 +23,6 @@ class MainActivity : ComponentActivity() {
 
     private val mainViewModel: MainViewModel by viewModels()
 
-    @OptIn(ExperimentalMaterial3Api::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -44,34 +32,11 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-
                     val drawerItems = listOf(
                         DrawerItem.NewNumbers, DrawerItem.OldNumbers, DrawerItem.Diplomatic
                     )
-
                     val navController = rememberNavController()
-
-                    Scaffold(topBar = {
-                        TopAppBar(title = {
-                            Text(text = stringResource(id = R.string.app_title))
-                        }, navigationIcon = {
-                            IconButton(onClick = {
-                                navController.navigate(NavRoutes.Drawer.value)
-                            }) {
-                                Icon(
-                                    imageVector = Icons.Default.Menu, contentDescription = null
-                                )
-                            }
-                        })
-                    }, content = { padding ->
-                        RegionCodesNavHost(
-                            modifier = Modifier
-                                .fillMaxSize()
-                                .padding(padding),
-                            navController = navController,
-                            drawerItems = drawerItems
-                        )
-                    })
+                    RegionCodesNavDrawer(drawerItems = drawerItems, navController = navController)
                 }
             }
         }
