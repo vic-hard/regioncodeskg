@@ -46,7 +46,9 @@ fun OldNumbersScreen(viewModel: OldNumbersViewModel = viewModel()) {
             .weight(1f)
             .align(Alignment.CenterHorizontally)) {
             Text(
-                modifier = Modifier.wrapContentWidth(),
+                modifier = Modifier
+                    .wrapContentWidth()
+                    .align(Alignment.CenterHorizontally),
                 text = stringResource(id = R.string.new_numbers_title),
                 style = MaterialTheme.typography.headlineLarge
             )
@@ -55,6 +57,14 @@ fun OldNumbersScreen(viewModel: OldNumbersViewModel = viewModel()) {
                 modifier = Modifier
                     .align(Alignment.CenterHorizontally),
                 text = state.selectedSymbol
+            )
+
+            Text(
+                modifier = Modifier
+                    .align(Alignment.CenterHorizontally)
+                    .padding(top = 16.dp),
+                text = stringResource(id = R.string.enter_first_letter),
+                style = MaterialTheme.typography.headlineSmall
             )
 
             Text(

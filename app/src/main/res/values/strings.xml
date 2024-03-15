@@ -15,4 +15,5 @@
     <string name="talas_region">Talas Region</string>
     <string name="chuy_region">Chüy Region</string>
     <string name="issyk_kul_region">Issyk-Kul Region</string>
+    <string name="enter_first_letter">Enter the first letter of the plate</string>
 </resources>
