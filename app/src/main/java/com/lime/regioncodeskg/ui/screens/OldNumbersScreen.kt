@@ -22,7 +22,7 @@ import com.lime.regioncodeskg.R
 import com.lime.regioncodeskg.ui.model.OldNumbersState
 import com.lime.regioncodeskg.ui.navigation.keyboards.KeyType
 import com.lime.regioncodeskg.ui.navigation.keyboards.KeyboardItem
-import com.lime.regioncodeskg.ui.navigation.plates.NewNumbersPlates
+import com.lime.regioncodeskg.ui.navigation.plates.OldNumbersPlates
 import com.lime.regioncodeskg.viewmodel.OldNumbersViewModel
 
 @Composable
@@ -51,7 +51,7 @@ fun OldNumbersScreen(viewModel: OldNumbersViewModel = viewModel()) {
                 style = MaterialTheme.typography.headlineLarge
             )
 
-            NewNumbersPlates(
+            OldNumbersPlates(
                 modifier = Modifier
                     .align(Alignment.CenterHorizontally),
                 text = state.selectedSymbol
