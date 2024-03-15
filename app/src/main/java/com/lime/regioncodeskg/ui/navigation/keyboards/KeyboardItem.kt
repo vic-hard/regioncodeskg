@@ -18,19 +18,25 @@ import androidx.compose.ui.unit.dp
 @Composable
 @Preview
 fun KeyboardItemPreview() {
-    KeyboardItem("1")
+    KeyboardItem("1", KeyType.Number) { _, _ -> }
 }
 
 @Composable
-fun KeyboardItem(text: String) {
+fun KeyboardItem(text: String, keyType: KeyType, onClick: (text: String, keyType: KeyType) -> Unit) {
     Box(
         modifier = Modifier
             .clip(RoundedCornerShape(16.dp))
             .background(color = Color.White)
             .size(width = 100.dp, height = 50.dp)
-            .clickable { },
+            .clickable { onClick(text, keyType) },
         contentAlignment = Alignment.Center
     ) {
-        Text(text = text, style = MaterialTheme.typography.headlineMedium.copy(color = Color.Black))
+
+        val textColor = when(keyType) {
+            KeyType.Delete -> Color.Red
+            else -> Color.Black
+        }
+
+        Text(text = text, style = MaterialTheme.typography.headlineMedium.copy(color = textColor))
     }
 }

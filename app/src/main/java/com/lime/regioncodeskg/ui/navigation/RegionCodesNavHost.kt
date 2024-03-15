@@ -19,6 +19,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -80,7 +81,7 @@ private fun RegionCodesNavHost(modifier: Modifier = Modifier,
         modifier = modifier
     ) {
         composable(NavRoutes.NewNumbers.value) {
-            NewNumbersScreen()
+            NewNumbersScreen(hiltViewModel())
         }
         composable(NavRoutes.OldNumbers.value) {
             OldNumbersScreen()

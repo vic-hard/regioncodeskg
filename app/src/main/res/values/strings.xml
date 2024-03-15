@@ -5,4 +5,14 @@
     <string name="diplomatic_numbers_title">Diplomatic numbers</string>
     <string name="app_title">Kyrgyzstan region codes</string>
     <string name="kg">KG</string>
+    <string name="region_not_defined">Region not defined</string>
+    <string name="bishkek">Bishkek</string>
+    <string name="osh">Osh</string>
+    <string name="batken_region">Batken Region</string>
+    <string name="jalal_abad_region">Jalal-Abad Region</string>
+    <string name="naryn_region">Naryn Region</string>
+    <string name="osh_region">Osh Region</string>
+    <string name="talas_region">Talas Region</string>
+    <string name="chuy_region">Chüy Region</string>
+    <string name="issyk_kul_region">Issyk-Kul Region</string>
 </resources>
