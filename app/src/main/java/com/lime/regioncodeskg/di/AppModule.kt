@@ -4,6 +4,8 @@ import android.content.Context
 import android.content.res.Resources
 import com.lime.regioncodeskg.utils.NumericPlatesResolver
 import com.lime.regioncodeskg.utils.NumericPlatesResolverImpl
+import com.lime.regioncodeskg.utils.OldPlatesResolver
+import com.lime.regioncodeskg.utils.OldPlatesResolverImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -22,6 +24,11 @@ class AppModule {
     @Provides
     fun provideNumericPlatesResolver(resources: Resources): NumericPlatesResolver {
         return NumericPlatesResolverImpl(resources)
+    }
+
+    @Provides
+    fun provideOldPlatesResolver(resources: Resources): OldPlatesResolver {
+        return OldPlatesResolverImpl(resources)
     }
 
 }

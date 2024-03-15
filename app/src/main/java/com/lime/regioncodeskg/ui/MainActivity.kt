@@ -12,7 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.rememberNavController
-import com.lime.regioncodeskg.MainViewModel
+import com.lime.regioncodeskg.viewmodel.MainViewModel
 import com.lime.regioncodeskg.ui.navigation.RegionCodesNavDrawer
 import com.lime.regioncodeskg.ui.navigation.drawer.DrawerItem
 import com.lime.regioncodeskg.ui.theme.RegionCodesKgTheme

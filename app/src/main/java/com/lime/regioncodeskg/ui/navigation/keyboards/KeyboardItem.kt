@@ -13,21 +13,27 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
 @Composable
 @Preview
 fun KeyboardItemPreview() {
-    KeyboardItem("1", KeyType.Number) { _, _ -> }
+    KeyboardItem(text = "1", keyType = KeyType.Number, onClick =  { _, _ -> }, width = 100.dp)
 }
 
 @Composable
-fun KeyboardItem(text: String, keyType: KeyType, onClick: (text: String, keyType: KeyType) -> Unit) {
+fun KeyboardItem(
+    text: String,
+    keyType: KeyType,
+    onClick: (text: String, keyType: KeyType) -> Unit,
+    width: Dp = 100.dp,
+) {
     Box(
         modifier = Modifier
             .clip(RoundedCornerShape(16.dp))
             .background(color = Color.White)
-            .size(width = 100.dp, height = 50.dp)
+            .size(width = width, height = 50.dp)
             .clickable { onClick(text, keyType) },
         contentAlignment = Alignment.Center
     ) {

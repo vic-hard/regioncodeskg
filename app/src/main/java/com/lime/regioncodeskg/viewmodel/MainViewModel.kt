@@ -1,4 +1,4 @@
-package com.lime.regioncodeskg
+package com.lime.regioncodeskg.viewmodel
 
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel

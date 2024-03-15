@@ -21,7 +21,7 @@ import com.lime.regioncodeskg.R
 import com.lime.regioncodeskg.ui.navigation.keyboards.KeyboardItem
 import com.lime.regioncodeskg.ui.navigation.plates.NewNumbersPlates
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.lime.regioncodeskg.NewNumbersViewModel
+import com.lime.regioncodeskg.viewmodel.NewNumbersViewModel
 import com.lime.regioncodeskg.ui.model.DefineNumbersState
 import com.lime.regioncodeskg.ui.navigation.keyboards.KeyType
 

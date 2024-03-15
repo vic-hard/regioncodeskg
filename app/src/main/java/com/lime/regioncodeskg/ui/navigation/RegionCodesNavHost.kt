@@ -84,7 +84,7 @@ private fun RegionCodesNavHost(modifier: Modifier = Modifier,
             NewNumbersScreen(hiltViewModel())
         }
         composable(NavRoutes.OldNumbers.value) {
-            OldNumbersScreen()
+            OldNumbersScreen(hiltViewModel())
         }
         composable(NavRoutes.Diplomatic.value) {
             DiplomaticNumbersScreen()
