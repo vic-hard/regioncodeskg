@@ -1,7 +1,7 @@
 package com.lime.regioncodeskg.viewmodel
 
 import androidx.lifecycle.ViewModel
-import com.lime.regioncodeskg.di.qualifiers.NewNumbersResolver
+import com.lime.regioncodeskg.di.qualifiers.DiplomaticResolver
 import com.lime.regioncodeskg.ui.model.DefineNumbersState
 import com.lime.regioncodeskg.ui.navigation.keyboards.KeyType
 import com.lime.regioncodeskg.utils.NumericPlatesResolver
@@ -12,8 +12,8 @@ import kotlinx.coroutines.flow.update
 import javax.inject.Inject
 
 @HiltViewModel
-class NewNumbersViewModel @Inject constructor(
-    @NewNumbersResolver private val numericPlatesResolver: NumericPlatesResolver
+class DiplomaticNumbersViewModel @Inject constructor(
+    @DiplomaticResolver private val diplomaticPlatesResolver: NumericPlatesResolver
 ) : ViewModel() {
 
     private val _state: MutableStateFlow<DefineNumbersState> = MutableStateFlow(DefineNumbersState())
@@ -34,7 +34,7 @@ class NewNumbersViewModel @Inject constructor(
                         it.copy(selectedSymbols = list)
                     }
                 }
-                val regionString = numericPlatesResolver.resolve(
+                val regionString = diplomaticPlatesResolver.resolve(
                     state.value.selectedSymbols.map { it.toInt() }
                 )
                 _state.update {

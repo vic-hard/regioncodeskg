@@ -24,6 +24,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.lime.regioncodeskg.R
+import com.lime.regioncodeskg.utils.dpToSp
 
 @Composable
 @Preview
@@ -49,7 +50,7 @@ fun NewNumbersPlates(modifier: Modifier, text: String) {
                 .padding(start = 8.dp, end = 8.dp),
             text = text,
             textAlign = TextAlign.Center,
-            style = TextStyle(color = Color.Black, fontSize = 120.sp)
+            style = TextStyle(color = Color.Black, fontSize = dpToSp(dp = 120.dp))
         )
 
         Row(modifier = Modifier
@@ -59,14 +60,16 @@ fun NewNumbersPlates(modifier: Modifier, text: String) {
             verticalAlignment = Alignment.CenterVertically) {
 
             Image(
-                modifier = Modifier.height(50.dp).width(100.dp),
+                modifier = Modifier
+                    .height(50.dp)
+                    .width(100.dp),
                 painter = painterResource(id = R.drawable.flag_kyrgyzstan),
                 contentDescription = "flag of Kyrgyzstan"
             )
 
             Text(
                 text = stringResource(id = R.string.kg),
-                style = TextStyle(color = Color.Black, fontSize = 50.sp)
+                style = TextStyle(color = Color.Black, fontSize = dpToSp(dp = 50.dp))
             )
 
         }

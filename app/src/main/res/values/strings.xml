@@ -16,4 +16,6 @@
     <string name="chuy_region">Chüy Region</string>
     <string name="issyk_kul_region">Issyk-Kul Region</string>
     <string name="enter_first_letter">Enter the first letter of the plate</string>
+    <string name="diplomatic_not_defined">Diplomatic mission code not defined</string>
+    <string name="enter_first_two_digits">Enter the first 2 digits of the plate</string>
 </resources>

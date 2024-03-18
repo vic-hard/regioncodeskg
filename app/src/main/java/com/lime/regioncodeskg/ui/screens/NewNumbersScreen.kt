@@ -24,6 +24,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.lime.regioncodeskg.viewmodel.NewNumbersViewModel
 import com.lime.regioncodeskg.ui.model.DefineNumbersState
 import com.lime.regioncodeskg.ui.navigation.keyboards.KeyType
+import com.lime.regioncodeskg.utils.dpToSp
 
 @Composable
 @Preview
@@ -49,7 +50,7 @@ fun NewNumbersScreen(viewModel: NewNumbersViewModel = viewModel()) {
             Text(
                 modifier = Modifier.wrapContentWidth(),
                 text = stringResource(id = R.string.new_numbers_title),
-                style = MaterialTheme.typography.headlineLarge
+                style = MaterialTheme.typography.headlineLarge.copy(fontSize = dpToSp(dp = 32.dp))
             )
 
             NewNumbersPlates(
@@ -63,7 +64,7 @@ fun NewNumbersScreen(viewModel: NewNumbersViewModel = viewModel()) {
                     .align(Alignment.CenterHorizontally)
                     .padding(top = 16.dp),
                 text = state.regionString,
-                style = MaterialTheme.typography.headlineMedium
+                style = MaterialTheme.typography.headlineMedium.copy(fontSize = dpToSp(dp = 28.dp))
             )
 
         }

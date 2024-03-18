@@ -4,7 +4,6 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
@@ -22,8 +21,8 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import com.lime.regioncodeskg.R
+import com.lime.regioncodeskg.utils.dpToSp
 
 @Composable
 @Preview
@@ -46,7 +45,10 @@ fun OldNumbersPlates(modifier: Modifier, text: String) {
     ) {
 
         Image(
-            modifier = Modifier.height(120.dp).wrapContentWidth().padding(start = 10.dp),
+            modifier = Modifier
+                .height(120.dp)
+                .wrapContentWidth()
+                .padding(start = 10.dp),
             painter = painterResource(id = R.drawable.flag_kyrgyzstan_vertical),
             contentDescription = "flag of Kyrgyzstan"
         )
@@ -59,7 +61,7 @@ fun OldNumbersPlates(modifier: Modifier, text: String) {
                 .padding(start = 40.dp, end = 8.dp),
             text = text,
             textAlign = TextAlign.Center,
-            style = TextStyle(color = Color.Black, fontSize = 100.sp)
+            style = TextStyle(color = Color.Black, fontSize = dpToSp(dp = 100.dp))
         )
     }
 }

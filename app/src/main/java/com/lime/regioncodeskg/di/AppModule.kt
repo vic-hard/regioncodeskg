@@ -2,6 +2,9 @@ package com.lime.regioncodeskg.di
 
 import android.content.Context
 import android.content.res.Resources
+import com.lime.regioncodeskg.di.qualifiers.DiplomaticResolver
+import com.lime.regioncodeskg.di.qualifiers.NewNumbersResolver
+import com.lime.regioncodeskg.utils.DiplomaticPlatesResolverImpl
 import com.lime.regioncodeskg.utils.NumericPlatesResolver
 import com.lime.regioncodeskg.utils.NumericPlatesResolverImpl
 import com.lime.regioncodeskg.utils.OldPlatesResolver
@@ -22,6 +25,7 @@ class AppModule {
     }
 
     @Provides
+    @NewNumbersResolver
     fun provideNumericPlatesResolver(resources: Resources): NumericPlatesResolver {
         return NumericPlatesResolverImpl(resources)
     }
@@ -29,6 +33,12 @@ class AppModule {
     @Provides
     fun provideOldPlatesResolver(resources: Resources): OldPlatesResolver {
         return OldPlatesResolverImpl(resources)
+    }
+
+    @Provides
+    @DiplomaticResolver
+    fun provideDiplomaticPlatesResolver(resources: Resources): NumericPlatesResolver {
+        return DiplomaticPlatesResolverImpl(resources)
     }
 
 }
