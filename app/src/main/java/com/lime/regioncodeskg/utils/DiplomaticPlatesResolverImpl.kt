@@ -12,7 +12,35 @@ class DiplomaticPlatesResolverImpl(private val resources: Resources) : NumericPl
         if (numericInput.size < 2)
             return ""
 
-        return resources.getString(R.string.diplomatic_not_defined)
+        return when(numericInput.joinToString(separator = "")) {
+            "01" -> resources.getString(R.string.turkey)
+            "02" -> resources.getString(R.string.usa)
+            "03" -> resources.getString(R.string.china)
+            "04" -> resources.getString(R.string.russia)
+            "05" -> resources.getString(R.string.germany)
+            "06" -> resources.getString(R.string.iran)
+            "07" -> resources.getString(R.string.kazakhstan)
+            "08" -> resources.getString(R.string.india)
+            "09" -> resources.getString(R.string.belarus)
+            "10" -> resources.getString(R.string.pakistan)
+            "11" -> resources.getString(R.string.uzbekistan)
+            "12" -> resources.getString(R.string.ukraine)
+            "13" -> resources.getString(R.string.afghanistan)
+            "14" -> resources.getString(R.string.tajikistan)
+            "15" -> resources.getString(R.string.japan)
+            "16" -> resources.getString(R.string.south_korea)
+            "17" -> resources.getString(R.string.european_union)
+            "18" -> resources.getString(R.string.france)
+            "19" -> resources.getString(R.string.azerbaijan)
+            "20" -> resources.getString(R.string.saudi_arabia)
+            "21" -> resources.getString(R.string.united_kingdom)
+            "22" -> resources.getString(R.string.qatar)
+            "23" -> resources.getString(R.string.switzerland)
+            "24" -> resources.getString(R.string.mongolia)
+            "25" -> resources.getString(R.string.turkmenistan)
+            "26" -> resources.getString(R.string.hungary)
+            else -> resources.getString(R.string.diplomatic_not_defined)
+        }
     }
 
 }
