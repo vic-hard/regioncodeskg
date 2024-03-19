@@ -3,6 +3,7 @@
     <string name="new_numbers_title">From June 1, 2016</string>
     <string name="old_numbers_title">1994–2016</string>
     <string name="diplomatic_numbers_title">Diplomatic numbers (five-digit)</string>
+    <string name="diplomatic_numbers_title_four_digits">Diplomatic numbers (four-digit)</string>
     <string name="app_title">Kyrgyzstan region codes</string>
     <string name="kg">KG</string>
     <string name="region_not_defined">Region not defined</string>
@@ -20,6 +21,7 @@
     <string name="enter_first_letter">Enter the first letter of the plate</string>
     <string name="diplomatic_not_defined">Diplomatic mission code not defined</string>
     <string name="enter_first_two_digits">Enter the first 2 digits of the plate</string>
+    <string name="enter_first_four_digits">Enter the first 4 digits of the plate</string>
     <string name="diplomatic_hint">There are 2 types of diplomatic plates: consisting of 5 digits and consisting of 4 digits. \n\nNumbers in diplomatic plates consisting of 4 digits are not separated by spaces. Such numbers are issued to Honorary Consulates. \n\nTo determine the Diplomatic representation by numbers consisting of 5 digits, you need to enter the first 2 digits.</string>
     <string name="diplomatic_hint_example_first">Example: \'01\' - Turkey &#127481;&#127479;</string>
     <string name="diplomatic_hint_5digits">To determine the diplomatic representation by numbers consisting of 4 digits, you need to enter the first 4 digits.</string>
@@ -51,4 +53,6 @@
     <string name="mongolia">Mongolia &#127474;&#127475;</string>
     <string name="turkmenistan">Turkmenistan &#127481;&#127474;</string>
     <string name="hungary">Hungary &#127469;&#127482;</string>
+
+    <string name="latvia">Republic of Latvia &#127473;&#127483;</string>
 </resources>

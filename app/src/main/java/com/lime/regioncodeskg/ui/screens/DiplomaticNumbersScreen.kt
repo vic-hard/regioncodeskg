@@ -24,10 +24,12 @@ import androidx.compose.ui.unit.dp
 import com.lime.regioncodeskg.R
 import com.lime.regioncodeskg.ui.dialogs.DiplomaticNumbersHintDialog
 import com.lime.regioncodeskg.ui.labels.ScreenHeaderWithIcon
-import com.lime.regioncodeskg.ui.model.DefineNumbersState
+import com.lime.regioncodeskg.ui.model.DiplomaticNumbersState
 import com.lime.regioncodeskg.ui.navigation.keyboards.KeyType
 import com.lime.regioncodeskg.ui.navigation.keyboards.KeyboardItem
+import com.lime.regioncodeskg.ui.navigation.plates.Diplomatic4DigitsPlates
 import com.lime.regioncodeskg.ui.navigation.plates.DiplomaticNumbersPlates
+import com.lime.regioncodeskg.ui.navigation.plates.DiplomaticNumbersType
 import com.lime.regioncodeskg.utils.dpToSp
 
 @Composable
@@ -37,9 +39,11 @@ fun DiplomaticNumbersScreenPreview() {
         .fillMaxSize()
         .background(color = Color.DarkGray)) {
         DiplomaticNumbersScreen(
-            DefineNumbersState(
+            DiplomaticNumbersState(
                 listOf("0", "2"),
-                stringResource(id = R.string.usa)
+                stringResource(id = R.string.usa),
+                false,
+                DiplomaticNumbersType.FiveDigitsType
             ),
             { _, _ -> },
             { }
@@ -48,7 +52,7 @@ fun DiplomaticNumbersScreenPreview() {
 }
 
 @Composable
-fun DiplomaticNumbersScreen(state: DefineNumbersState,
+fun DiplomaticNumbersScreen(state: DiplomaticNumbersState,
                             onKeyboardItemClick: (text: String, keyType: KeyType) -> Unit,
                             onToggleDialog: () -> Unit) {
 
@@ -70,7 +74,14 @@ fun DiplomaticNumbersScreen(state: DefineNumbersState,
             Row(modifier = Modifier.wrapContentWidth()) {
 
                 ScreenHeaderWithIcon(
-                    text = stringResource(id = R.string.diplomatic_numbers_title),
+                    text = when(state.diplomaticNumbersType) {
+                        DiplomaticNumbersType.FiveDigitsType -> {
+                            stringResource(id = R.string.diplomatic_numbers_title)
+                        }
+                        DiplomaticNumbersType.FourDigitsType -> {
+                            stringResource(id = R.string.diplomatic_numbers_title_four_digits)
+                        }
+                    },
                     painter = if (isSystemInDarkTheme()) {
                         painterResource(id = R.drawable.ic_question_mark_white_24dp)
                     } else {
@@ -82,17 +93,35 @@ fun DiplomaticNumbersScreen(state: DefineNumbersState,
 
             }
 
-            DiplomaticNumbersPlates(
-                modifier = Modifier
-                    .align(Alignment.CenterHorizontally),
-                text = state.selectedSymbols.joinToString(separator = "")
-            )
+            when(state.diplomaticNumbersType) {
+                DiplomaticNumbersType.FiveDigitsType -> {
+                    DiplomaticNumbersPlates(
+                        modifier = Modifier
+                            .align(Alignment.CenterHorizontally),
+                        text = state.selectedSymbols.joinToString(separator = "")
+                    )
+                }
+                DiplomaticNumbersType.FourDigitsType -> {
+                    Diplomatic4DigitsPlates(
+                        modifier = Modifier
+                            .align(Alignment.CenterHorizontally),
+                        text = state.selectedSymbols.joinToString(separator = "")
+                    )
+                }
+            }
 
             Text(
                 modifier = Modifier
                     .align(Alignment.CenterHorizontally)
                     .padding(top = 16.dp),
-                text = stringResource(id = R.string.enter_first_two_digits),
+                text = when (state.diplomaticNumbersType) {
+                    DiplomaticNumbersType.FiveDigitsType -> {
+                        stringResource(id = R.string.enter_first_two_digits)
+                    }
+                    DiplomaticNumbersType.FourDigitsType -> {
+                        stringResource(id = R.string.enter_first_four_digits)
+                    }
+                },
                 style = MaterialTheme.typography.labelLarge,
                 textAlign = TextAlign.Center
             )

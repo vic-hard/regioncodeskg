@@ -1,6 +1,7 @@
 package com.lime.regioncodeskg.viewmodel
 
 import androidx.lifecycle.ViewModel
+import com.lime.regioncodeskg.di.qualifiers.Diplomatic4DigitsResolver
 import com.lime.regioncodeskg.di.qualifiers.DiplomaticResolver
 import com.lime.regioncodeskg.ui.model.DiplomaticNumbersState
 import com.lime.regioncodeskg.ui.navigation.keyboards.KeyType
@@ -13,12 +14,12 @@ import kotlinx.coroutines.flow.update
 import javax.inject.Inject
 
 @HiltViewModel
-class DiplomaticNumbersViewModel @Inject constructor(
-    @DiplomaticResolver private val diplomaticPlatesResolver: NumericPlatesResolver
+class Diplomatic4DigitsViewModel @Inject constructor(
+    @Diplomatic4DigitsResolver private val diplomatic4DigitsResolver: NumericPlatesResolver
 ) : ViewModel() {
 
     private val _state: MutableStateFlow<DiplomaticNumbersState> =
-        MutableStateFlow(DiplomaticNumbersState(diplomaticNumbersType = DiplomaticNumbersType.FiveDigitsType))
+        MutableStateFlow(DiplomaticNumbersState(diplomaticNumbersType = DiplomaticNumbersType.FourDigitsType))
     val state = _state.asStateFlow()
 
     fun onKeyboardButtonClick(text: String, keyType: KeyType) {
@@ -29,14 +30,14 @@ class DiplomaticNumbersViewModel @Inject constructor(
                 }
             }
             else -> {
-                if (state.value.selectedSymbols.size <= 1) {
+                if (state.value.selectedSymbols.size <= 3) {
                     _state.update {
                         val list = it.selectedSymbols.toMutableList()
                         list.add(text)
                         it.copy(selectedSymbols = list)
                     }
                 }
-                val regionString = diplomaticPlatesResolver.resolve(
+                val regionString = diplomatic4DigitsResolver.resolve(
                     state.value.selectedSymbols.map { it.toInt() }
                 )
                 _state.update {

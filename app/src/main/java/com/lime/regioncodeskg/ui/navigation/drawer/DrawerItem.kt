@@ -23,4 +23,10 @@ sealed class DrawerItem(val route: String, @DrawableRes val iconResId: Int, @Str
         R.drawable.ic_diplomatic_numbers_drawer24dp,
         R.string.diplomatic_numbers_title
     )
+
+    object Diplomatic4Digits : DrawerItem(
+        NavRoutes.Diplomatic4Digits.value,
+        R.drawable.ic_work_24dp,
+        R.string.diplomatic_numbers_title_four_digits
+    )
 }

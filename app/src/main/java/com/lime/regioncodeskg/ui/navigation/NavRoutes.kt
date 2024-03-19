@@ -4,5 +4,6 @@ enum class NavRoutes(val value: String) {
     Drawer("drawer"),
     NewNumbers("old-numbers"),
     OldNumbers("new-numbers"),
-    Diplomatic("diplomatic");
+    Diplomatic("diplomatic"),
+    Diplomatic4Digits("diplomatic-four-digits");
 }

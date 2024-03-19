@@ -2,8 +2,10 @@ package com.lime.regioncodeskg.di
 
 import android.content.Context
 import android.content.res.Resources
+import com.lime.regioncodeskg.di.qualifiers.Diplomatic4DigitsResolver
 import com.lime.regioncodeskg.di.qualifiers.DiplomaticResolver
 import com.lime.regioncodeskg.di.qualifiers.NewNumbersResolver
+import com.lime.regioncodeskg.utils.Diplomatic4DigitsResolverImpl
 import com.lime.regioncodeskg.utils.DiplomaticPlatesResolverImpl
 import com.lime.regioncodeskg.utils.NumericPlatesResolver
 import com.lime.regioncodeskg.utils.NumericPlatesResolverImpl
@@ -39,6 +41,12 @@ class AppModule {
     @DiplomaticResolver
     fun provideDiplomaticPlatesResolver(resources: Resources): NumericPlatesResolver {
         return DiplomaticPlatesResolverImpl(resources)
+    }
+
+    @Provides
+    @Diplomatic4DigitsResolver
+    fun provideDiplomatic4DigitsResolver(resources: Resources): NumericPlatesResolver {
+        return Diplomatic4DigitsResolverImpl(resources)
     }
 
 }

@@ -33,7 +33,10 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
                     val drawerItems = listOf(
-                        DrawerItem.NewNumbers, DrawerItem.OldNumbers, DrawerItem.Diplomatic
+                        DrawerItem.NewNumbers,
+                        DrawerItem.OldNumbers,
+                        DrawerItem.Diplomatic,
+                        DrawerItem.Diplomatic4Digits
                     )
                     val navController = rememberNavController()
                     RegionCodesNavDrawer(drawerItems = drawerItems, navController = navController)
