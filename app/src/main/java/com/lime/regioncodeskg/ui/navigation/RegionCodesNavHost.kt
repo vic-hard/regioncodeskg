@@ -16,20 +16,25 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.rememberDrawerState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.lime.regioncodeskg.R
+import com.lime.regioncodeskg.ui.model.DefineNumbersState
 import com.lime.regioncodeskg.ui.navigation.drawer.DrawerContent
 import com.lime.regioncodeskg.ui.navigation.drawer.DrawerItem
 import com.lime.regioncodeskg.ui.screens.DiplomaticNumbersScreen
 import com.lime.regioncodeskg.ui.screens.NewNumbersScreen
 import com.lime.regioncodeskg.ui.screens.OldNumbersScreen
+import com.lime.regioncodeskg.viewmodel.DiplomaticNumbersViewModel
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -87,7 +92,9 @@ private fun RegionCodesNavHost(modifier: Modifier = Modifier,
             OldNumbersScreen(hiltViewModel())
         }
         composable(NavRoutes.Diplomatic.value) {
-            DiplomaticNumbersScreen(hiltViewModel())
+            val viewModel: DiplomaticNumbersViewModel = hiltViewModel()
+            val state: DefineNumbersState by viewModel.state.collectAsState()
+            DiplomaticNumbersScreen(state, viewModel::onKeyboardButtonClick)
         }
     }
 }

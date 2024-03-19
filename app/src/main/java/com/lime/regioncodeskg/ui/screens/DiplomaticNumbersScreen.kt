@@ -1,41 +1,52 @@
 package com.lime.regioncodeskg.ui.screens
 
+import androidx.compose.foundation.background
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.viewmodel.compose.viewModel
 import com.lime.regioncodeskg.R
+import com.lime.regioncodeskg.ui.labels.ScreenHeaderWithIcon
 import com.lime.regioncodeskg.ui.model.DefineNumbersState
 import com.lime.regioncodeskg.ui.navigation.keyboards.KeyType
 import com.lime.regioncodeskg.ui.navigation.keyboards.KeyboardItem
 import com.lime.regioncodeskg.ui.navigation.plates.DiplomaticNumbersPlates
 import com.lime.regioncodeskg.utils.dpToSp
-import com.lime.regioncodeskg.viewmodel.DiplomaticNumbersViewModel
 
 @Composable
 @Preview
 fun DiplomaticNumbersScreenPreview() {
-    DiplomaticNumbersScreen()
+    Box(modifier = Modifier
+        .fillMaxSize()
+        .background(color = Color.DarkGray)) {
+        DiplomaticNumbersScreen(
+            DefineNumbersState(
+                listOf("0", "2"),
+                stringResource(id = R.string.usa)
+            )
+        ) { _, _ -> }
+    }
+
 }
 
 @Composable
-fun DiplomaticNumbersScreen(viewModel: DiplomaticNumbersViewModel = viewModel()) {
-
-    val state: DefineNumbersState by viewModel.state.collectAsState()
+fun DiplomaticNumbersScreen(state: DefineNumbersState, onKeyboardItemClick: (text: String, keyType: KeyType) -> Unit) {
 
     Column(
         modifier = Modifier
@@ -45,14 +56,20 @@ fun DiplomaticNumbersScreen(viewModel: DiplomaticNumbersViewModel = viewModel())
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Column(modifier = Modifier.weight(1f)) {
-            Text(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(bottom = 16.dp),
-                text = stringResource(id = R.string.diplomatic_numbers_title),
-                style = MaterialTheme.typography.headlineLarge.copy(fontSize = dpToSp(dp = 32.dp)),
-                textAlign = TextAlign.Center
-            )
+            Row(modifier = Modifier.wrapContentWidth()) {
+
+                ScreenHeaderWithIcon(
+                    text = stringResource(id = R.string.diplomatic_numbers_title),
+                    painter = if (isSystemInDarkTheme()) {
+                        painterResource(id = R.drawable.ic_question_mark_white_24dp)
+                    } else {
+                        painterResource(id = R.drawable.ic_question_mark_black_24dp)
+                    }
+                ) {
+
+                }
+
+            }
 
             DiplomaticNumbersPlates(
                 modifier = Modifier
@@ -90,9 +107,9 @@ fun DiplomaticNumbersScreen(viewModel: DiplomaticNumbersViewModel = viewModel())
                 horizontalArrangement = Arrangement.SpaceEvenly,
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                KeyboardItem("1", KeyType.Number, viewModel::onKeyboardButtonClick)
-                KeyboardItem("2", KeyType.Number, viewModel::onKeyboardButtonClick)
-                KeyboardItem("3", KeyType.Number, viewModel::onKeyboardButtonClick)
+                KeyboardItem("1", KeyType.Number, onKeyboardItemClick)
+                KeyboardItem("2", KeyType.Number, onKeyboardItemClick)
+                KeyboardItem("3", KeyType.Number, onKeyboardItemClick)
             }
 
             Row(
@@ -102,9 +119,9 @@ fun DiplomaticNumbersScreen(viewModel: DiplomaticNumbersViewModel = viewModel())
                 horizontalArrangement = Arrangement.SpaceEvenly,
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                KeyboardItem("4", KeyType.Number, viewModel::onKeyboardButtonClick)
-                KeyboardItem("5", KeyType.Number, viewModel::onKeyboardButtonClick)
-                KeyboardItem("6", KeyType.Number, viewModel::onKeyboardButtonClick)
+                KeyboardItem("4", KeyType.Number, onKeyboardItemClick)
+                KeyboardItem("5", KeyType.Number, onKeyboardItemClick)
+                KeyboardItem("6", KeyType.Number, onKeyboardItemClick)
             }
 
             Row(
@@ -114,9 +131,9 @@ fun DiplomaticNumbersScreen(viewModel: DiplomaticNumbersViewModel = viewModel())
                 horizontalArrangement = Arrangement.SpaceEvenly,
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                KeyboardItem("7", KeyType.Number, viewModel::onKeyboardButtonClick)
-                KeyboardItem("8", KeyType.Number, viewModel::onKeyboardButtonClick)
-                KeyboardItem("9", KeyType.Number, viewModel::onKeyboardButtonClick)
+                KeyboardItem("7", KeyType.Number, onKeyboardItemClick)
+                KeyboardItem("8", KeyType.Number, onKeyboardItemClick)
+                KeyboardItem("9", KeyType.Number, onKeyboardItemClick)
             }
 
             Row(
@@ -126,9 +143,9 @@ fun DiplomaticNumbersScreen(viewModel: DiplomaticNumbersViewModel = viewModel())
                 horizontalArrangement = Arrangement.SpaceEvenly,
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                KeyboardItem("0", KeyType.Number, viewModel::onKeyboardButtonClick)
+                KeyboardItem("0", KeyType.Number, onKeyboardItemClick)
 
-                KeyboardItem("C", KeyType.Delete, viewModel::onKeyboardButtonClick)
+                KeyboardItem("C", KeyType.Delete, onKeyboardItemClick)
             }
         }
 
