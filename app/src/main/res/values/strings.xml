@@ -6,6 +6,7 @@
     <string name="app_title">Kyrgyzstan region codes</string>
     <string name="kg">KG</string>
     <string name="region_not_defined">Region not defined</string>
+
     <string name="bishkek">Bishkek</string>
     <string name="osh">Osh</string>
     <string name="batken_region">Batken Region</string>
@@ -15,9 +16,15 @@
     <string name="talas_region">Talas Region</string>
     <string name="chuy_region">Chüy Region</string>
     <string name="issyk_kul_region">Issyk-Kul Region</string>
+
     <string name="enter_first_letter">Enter the first letter of the plate</string>
     <string name="diplomatic_not_defined">Diplomatic mission code not defined</string>
     <string name="enter_first_two_digits">Enter the first 2 digits of the plate</string>
+    <string name="diplomatic_hint">There are 2 types of diplomatic plates: consisting of 5 digits and consisting of 4 digits. \n\nNumbers in diplomatic plates consisting of 4 digits are not separated by spaces. Such numbers are issued to Honorary Consulates. \n\nTo determine the Diplomatic representation by numbers consisting of 5 digits, you need to enter the first 2 digits.</string>
+    <string name="diplomatic_hint_example_first">Example: \'01\' - Turkey &#127481;&#127479;</string>
+    <string name="diplomatic_hint_5digits">To determine the diplomatic representation by numbers consisting of 4 digits, you need to enter the first 4 digits.</string>
+    <string name="diplomatic_hint_example_second">Example: \'1001\' - Republic of Latvia &#127473;&#127483;</string>
+
     <string name="turkey">Turkey &#127481;&#127479;</string>
     <string name="usa">The United States of America &#127482;&#127480;</string>
     <string name="china">China &#127464;&#127475;</string>

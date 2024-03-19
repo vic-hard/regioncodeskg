@@ -22,6 +22,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.lime.regioncodeskg.R
+import com.lime.regioncodeskg.ui.dialogs.DiplomaticNumbersHintDialog
 import com.lime.regioncodeskg.ui.labels.ScreenHeaderWithIcon
 import com.lime.regioncodeskg.ui.model.DefineNumbersState
 import com.lime.regioncodeskg.ui.navigation.keyboards.KeyType
@@ -39,14 +40,17 @@ fun DiplomaticNumbersScreenPreview() {
             DefineNumbersState(
                 listOf("0", "2"),
                 stringResource(id = R.string.usa)
-            )
-        ) { _, _ -> }
+            ),
+            { _, _ -> },
+            { }
+        )
     }
-
 }
 
 @Composable
-fun DiplomaticNumbersScreen(state: DefineNumbersState, onKeyboardItemClick: (text: String, keyType: KeyType) -> Unit) {
+fun DiplomaticNumbersScreen(state: DefineNumbersState,
+                            onKeyboardItemClick: (text: String, keyType: KeyType) -> Unit,
+                            onToggleDialog: () -> Unit) {
 
     Column(
         modifier = Modifier
@@ -55,6 +59,13 @@ fun DiplomaticNumbersScreen(state: DefineNumbersState, onKeyboardItemClick: (tex
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
+
+        if (state.showDialog) {
+            DiplomaticNumbersHintDialog {
+                onToggleDialog.invoke()
+            }
+        }
+
         Column(modifier = Modifier.weight(1f)) {
             Row(modifier = Modifier.wrapContentWidth()) {
 
@@ -66,7 +77,7 @@ fun DiplomaticNumbersScreen(state: DefineNumbersState, onKeyboardItemClick: (tex
                         painterResource(id = R.drawable.ic_question_mark_black_24dp)
                     }
                 ) {
-
+                    onToggleDialog.invoke()
                 }
 
             }

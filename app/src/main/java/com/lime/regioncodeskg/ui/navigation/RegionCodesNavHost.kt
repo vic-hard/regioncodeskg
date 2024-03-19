@@ -22,7 +22,6 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -94,7 +93,7 @@ private fun RegionCodesNavHost(modifier: Modifier = Modifier,
         composable(NavRoutes.Diplomatic.value) {
             val viewModel: DiplomaticNumbersViewModel = hiltViewModel()
             val state: DefineNumbersState by viewModel.state.collectAsState()
-            DiplomaticNumbersScreen(state, viewModel::onKeyboardButtonClick)
+            DiplomaticNumbersScreen(state, viewModel::onKeyboardButtonClick, viewModel::toggleDialog)
         }
     }
 }

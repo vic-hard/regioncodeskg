@@ -43,4 +43,10 @@ class DiplomaticNumbersViewModel @Inject constructor(
             }
         }
     }
+
+    fun toggleDialog() {
+        _state.update {
+            it.copy(showDialog = !state.value.showDialog)
+        }
+    }
 }
