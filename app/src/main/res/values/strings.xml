@@ -53,6 +53,33 @@
     <string name="mongolia">Mongolia &#127474;&#127475;</string>
     <string name="turkmenistan">Turkmenistan &#127481;&#127474;</string>
     <string name="hungary">Hungary &#127469;&#127482;</string>
+    <string name="ebrd">European Bank for Reconstruction and Development</string>
+    <string name="imf">International Monetary Fund</string>
+    <string name="world_bank">The World Bank</string>
+    <string name="tv_mir">International Television and Radio Company \'Mir\'</string>
+    <string name="swiss_cooperation">Swiss Cooperation Office</string>
+    <string name="german_tech">German Society for Technical Cooperation</string>
+    <string name="iom">International Organization for Migration</string>
+    <string name="uk_inter_coop">UK Department for International Cooperation</string>
+    <string name="osce">Organization for Security and Co-operation in Europe (OSCE)</string>
+    <string name="children_villages">Public Fund "SOS - Children's Villages"</string>
+    <string name="japan_inter_coop">Japan International Cooperation Agency</string>
+    <string name="adb">Asian Development Bank (ADB)</string>
+    <string name="icrc">International Committee of the Red Cross</string>
+    <string name="aga_khan">Permanent Representative of the Aga Khan Development Network</string>
+    <string name="istc">The International Science and Technology Center (ISTC)</string>
+    <string name="rkdf">Russian-Kyrgyz Development Fund</string>
 
     <string name="latvia">Republic of Latvia &#127473;&#127483;</string>
+    <string name="italy">Italy &#127470;&#127481;</string>
+    <string name="canada">Canada &#127464;&#127462;</string>
+    <string name="sweden">Sweden &#127480;&#127466;</string>
+    <string name="cyprus">Republic of Cyprus &#127464;&#127486;</string>
+    <string name="czech_republic">Czech Republic &#127464;&#127487;</string>
+    <string name="moldova">Republic of Moldova &#127474;&#127465;</string>
+    <string name="slovak_republic">Slovak Republic &#x1F1F8;&#x1F1F0;</string>
+    <string name="romania">Romania &#127479;&#127476;</string>
+    <string name="lithuania">Republic of Lithuania &#127473;&#127481;</string>
+    <string name="netherlands">Kingdom of the Netherlands &#127475;&#127473;</string>
+    <string name="belgium">Kingdom of Belgium &#127463;&#127466;</string>
 </resources>
