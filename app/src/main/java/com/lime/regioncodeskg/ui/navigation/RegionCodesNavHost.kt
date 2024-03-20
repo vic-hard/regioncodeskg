@@ -1,5 +1,6 @@
 package com.lime.regioncodeskg.ui.navigation
 
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
@@ -20,6 +21,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
@@ -54,7 +56,13 @@ fun RegionCodesNavDrawer(
     val scope = rememberCoroutineScope()
 
     ModalNavigationDrawer(drawerContent = {
-        ModalDrawerSheet {
+        ModalDrawerSheet(
+            drawerContainerColor = if (isSystemInDarkTheme()) {
+                Color(red = 28, green = 27, blue = 31)
+            } else {
+                Color.White
+            }
+        ) {
             DrawerContent(items = drawerItems, onItemClicked = { destination ->
                 navController.navigate(destination)
                 scope.launch { drawerState.close() }
