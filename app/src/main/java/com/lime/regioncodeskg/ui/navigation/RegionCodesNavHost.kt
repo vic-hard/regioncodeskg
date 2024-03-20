@@ -28,13 +28,16 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.lime.regioncodeskg.R
 import com.lime.regioncodeskg.ui.model.DiplomaticNumbersState
+import com.lime.regioncodeskg.ui.model.MilitaryNumbersState
 import com.lime.regioncodeskg.ui.navigation.drawer.DrawerContent
 import com.lime.regioncodeskg.ui.navigation.drawer.DrawerItem
 import com.lime.regioncodeskg.ui.screens.DiplomaticNumbersScreen
+import com.lime.regioncodeskg.ui.screens.MilitaryNumbersScreen
 import com.lime.regioncodeskg.ui.screens.NewNumbersScreen
 import com.lime.regioncodeskg.ui.screens.OldNumbersScreen
 import com.lime.regioncodeskg.viewmodel.Diplomatic4DigitsViewModel
 import com.lime.regioncodeskg.viewmodel.DiplomaticNumbersViewModel
+import com.lime.regioncodeskg.viewmodel.MilitaryNumbersViewModel
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -107,6 +110,14 @@ private fun RegionCodesNavHost(modifier: Modifier = Modifier,
                 state,
                 viewModel::onKeyboardButtonClick,
                 viewModel::toggleDialog,
+            )
+        }
+        composable(NavRoutes.MilitaryNumbers.value) {
+            val viewModel: MilitaryNumbersViewModel = hiltViewModel()
+            val state: MilitaryNumbersState by viewModel.state.collectAsState()
+            MilitaryNumbersScreen(
+                state = state,
+                onKeyboardItemClick = viewModel::onKeyboardButtonClick
             )
         }
     }

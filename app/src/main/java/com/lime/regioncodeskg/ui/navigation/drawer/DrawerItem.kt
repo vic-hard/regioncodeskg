@@ -29,4 +29,10 @@ sealed class DrawerItem(val route: String, @DrawableRes val iconResId: Int, @Str
         R.drawable.ic_work_24dp,
         R.string.diplomatic_numbers_title_four_digits
     )
+
+    object MilitaryNumbers : DrawerItem(
+        NavRoutes.MilitaryNumbers.value,
+        R.drawable.iic_star_24dp,
+        R.string.military_numbers
+    )
 }

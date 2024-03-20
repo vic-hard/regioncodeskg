@@ -7,6 +7,8 @@ import com.lime.regioncodeskg.di.qualifiers.DiplomaticResolver
 import com.lime.regioncodeskg.di.qualifiers.NewNumbersResolver
 import com.lime.regioncodeskg.utils.Diplomatic4DigitsResolverImpl
 import com.lime.regioncodeskg.utils.DiplomaticPlatesResolverImpl
+import com.lime.regioncodeskg.utils.MilitaryPlatesResolver
+import com.lime.regioncodeskg.utils.MilitaryPlatesResolverImpl
 import com.lime.regioncodeskg.utils.NumericPlatesResolver
 import com.lime.regioncodeskg.utils.NumericPlatesResolverImpl
 import com.lime.regioncodeskg.utils.OldPlatesResolver
@@ -47,6 +49,11 @@ class AppModule {
     @Diplomatic4DigitsResolver
     fun provideDiplomatic4DigitsResolver(resources: Resources): NumericPlatesResolver {
         return Diplomatic4DigitsResolverImpl(resources)
+    }
+
+    @Provides
+    fun providesMilitaryPlatesResolver(resources: Resources): MilitaryPlatesResolver {
+        return MilitaryPlatesResolverImpl(resources)
     }
 
 }

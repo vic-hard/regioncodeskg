@@ -36,7 +36,8 @@ class MainActivity : ComponentActivity() {
                         DrawerItem.NewNumbers,
                         DrawerItem.OldNumbers,
                         DrawerItem.Diplomatic,
-                        DrawerItem.Diplomatic4Digits
+                        DrawerItem.Diplomatic4Digits,
+                        DrawerItem.MilitaryNumbers
                     )
                     val navController = rememberNavController()
                     RegionCodesNavDrawer(drawerItems = drawerItems, navController = navController)

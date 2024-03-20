@@ -1,6 +1,8 @@
 package com.lime.regioncodeskg.ui.screens
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
@@ -10,31 +12,41 @@ import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.viewmodel.compose.viewModel
 import com.lime.regioncodeskg.R
-import com.lime.regioncodeskg.ui.model.OldNumbersState
+import com.lime.regioncodeskg.ui.model.MilitaryNumbersState
 import com.lime.regioncodeskg.ui.navigation.keyboards.KeyType
 import com.lime.regioncodeskg.ui.navigation.keyboards.KeyboardItem
-import com.lime.regioncodeskg.ui.navigation.plates.OldNumbersPlates
-import com.lime.regioncodeskg.viewmodel.OldNumbersViewModel
+import com.lime.regioncodeskg.ui.navigation.plates.MilitaryNumbersPlates
 
 @Composable
 @Preview
-fun OldNumbersScreenPreview() {
-    OldNumbersScreen()
+fun MilitaryNumbersScreenPreview() {
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(color = Color.DarkGray)
+    ) {
+        MilitaryNumbersScreen(
+            state = MilitaryNumbersState(
+                selectedSymbols = listOf("К", "A"),
+                combatArm = stringResource(id = R.string.ground_forces)
+            ),
+            onKeyboardItemClick = { _, _ -> }
+        )
+    }
 }
 
 @Composable
-fun OldNumbersScreen(viewModel: OldNumbersViewModel = viewModel()) {
-    val state: OldNumbersState by viewModel.state.collectAsState()
-
+fun MilitaryNumbersScreen(
+    state: MilitaryNumbersState,
+    onKeyboardItemClick: (text: String, keyType: KeyType) -> Unit
+) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -48,30 +60,31 @@ fun OldNumbersScreen(viewModel: OldNumbersViewModel = viewModel()) {
             Text(
                 modifier = Modifier
                     .wrapContentWidth()
-                    .align(Alignment.CenterHorizontally),
-                text = stringResource(id = R.string.old_numbers_title),
+                    .align(Alignment.CenterHorizontally)
+                    .padding(bottom = 16.dp),
+                text = stringResource(id = R.string.military_numbers),
                 style = MaterialTheme.typography.headlineLarge
             )
 
-            OldNumbersPlates(
+            MilitaryNumbersPlates(
                 modifier = Modifier
                     .align(Alignment.CenterHorizontally),
-                text = state.selectedSymbol
+                text = state.selectedSymbols.joinToString("")
             )
 
             Text(
                 modifier = Modifier
                     .align(Alignment.CenterHorizontally)
                     .padding(top = 16.dp),
-                text = stringResource(id = R.string.enter_first_letter),
-                style = MaterialTheme.typography.headlineSmall
+                text = stringResource(id = R.string.enter_two_letters),
+                style = MaterialTheme.typography.labelLarge
             )
 
             Text(
                 modifier = Modifier
                     .align(Alignment.CenterHorizontally)
                     .padding(top = 16.dp),
-                text = state.regionString,
+                text = state.combatArm,
                 style = MaterialTheme.typography.headlineMedium
             )
 
@@ -86,10 +99,10 @@ fun OldNumbersScreen(viewModel: OldNumbersViewModel = viewModel()) {
                 horizontalArrangement = Arrangement.SpaceEvenly,
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                KeyboardItem("A", KeyType.Letter, viewModel::onKeyboardButtonClick, 70.dp)
-                KeyboardItem("B", KeyType.Letter, viewModel::onKeyboardButtonClick,  70.dp)
-                KeyboardItem("C", KeyType.Letter, viewModel::onKeyboardButtonClick, 70.dp)
-                KeyboardItem("E", KeyType.Letter, viewModel::onKeyboardButtonClick,  70.dp)
+                KeyboardItem("К", KeyType.Letter, onKeyboardItemClick, 70.dp)
+                KeyboardItem("А", KeyType.Letter, onKeyboardItemClick, 70.dp)
+                KeyboardItem("М", KeyType.Letter, onKeyboardItemClick, 70.dp)
+                KeyboardItem("Ж", KeyType.Letter, onKeyboardItemClick, 70.dp)
             }
 
             Row(
@@ -99,22 +112,10 @@ fun OldNumbersScreen(viewModel: OldNumbersViewModel = viewModel()) {
                 horizontalArrangement = Arrangement.SpaceEvenly,
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                KeyboardItem("F", KeyType.Letter, viewModel::onKeyboardButtonClick, 70.dp)
-                KeyboardItem("D", KeyType.Letter, viewModel::onKeyboardButtonClick, 70.dp)
-                KeyboardItem("I", KeyType.Letter, viewModel::onKeyboardButtonClick, 70.dp)
-                KeyboardItem("N", KeyType.Letter, viewModel::onKeyboardButtonClick, 70.dp)
-            }
-
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(16.dp),
-                horizontalArrangement = Arrangement.SpaceEvenly,
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                KeyboardItem("H", KeyType.Letter, viewModel::onKeyboardButtonClick)
-                KeyboardItem("Z", KeyType.Letter, viewModel::onKeyboardButtonClick)
-                KeyboardItem("O", KeyType.Letter, viewModel::onKeyboardButtonClick)
+                KeyboardItem("У", KeyType.Letter, onKeyboardItemClick, 70.dp)
+                KeyboardItem("Г", KeyType.Letter, onKeyboardItemClick, 70.dp)
+                KeyboardItem("С", KeyType.Letter, onKeyboardItemClick, 70.dp)
+                KeyboardItem("Ю", KeyType.Letter, onKeyboardItemClick, 70.dp)
             }
 
             Row(
@@ -124,9 +125,9 @@ fun OldNumbersScreen(viewModel: OldNumbersViewModel = viewModel()) {
                 horizontalArrangement = Arrangement.SpaceEvenly,
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                KeyboardItem("T", KeyType.Letter, viewModel::onKeyboardButtonClick)
-                KeyboardItem("S", KeyType.Letter, viewModel::onKeyboardButtonClick)
-                KeyboardItem("C", KeyType.Delete, viewModel::onKeyboardButtonClick)
+                KeyboardItem("Б", KeyType.Letter, onKeyboardItemClick)
+                KeyboardItem("Ч", KeyType.Letter, onKeyboardItemClick)
+                KeyboardItem("C", KeyType.Delete, onKeyboardItemClick)
             }
         }
 

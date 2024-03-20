@@ -5,5 +5,6 @@ enum class NavRoutes(val value: String) {
     NewNumbers("old-numbers"),
     OldNumbers("new-numbers"),
     Diplomatic("diplomatic"),
-    Diplomatic4Digits("diplomatic-four-digits");
+    Diplomatic4Digits("diplomatic-four-digits"),
+    MilitaryNumbers("military-numbers");
 }
