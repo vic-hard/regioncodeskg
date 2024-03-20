@@ -1,12 +1,12 @@
 <resources>
-    <string name="app_name">RegionCodesKg</string>
+    <string name="app_name">Region codes of Kyrgyzstan</string>
     <string name="new_numbers_title">From June 1, 2016</string>
-    <string name="old_numbers_title">1994–2016</string>
+    <string name="old_numbers_title" translatable="false">1994–2016</string>
     <string name="diplomatic_numbers_title">Diplomatic numbers (five-digit)</string>
     <string name="diplomatic_numbers_title_four_digits">Diplomatic numbers (four-digit)</string>
     <string name="military_numbers">Military numbers</string>
     <string name="app_title">Kyrgyzstan region codes</string>
-    <string name="kg">KG</string>
+    <string name="kg" translatable="false">KG</string>
     <string name="region_not_defined">Region not defined</string>
     <string name="combat_arm_not_defined">Combat Arm not defined</string>
 
