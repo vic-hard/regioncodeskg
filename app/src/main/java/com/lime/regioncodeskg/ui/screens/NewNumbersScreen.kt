@@ -59,7 +59,10 @@ fun NewNumbersScreen(
             .weight(1.3f)
             .align(Alignment.CenterHorizontally)) {
             Text(
-                modifier = Modifier.wrapContentWidth().padding(bottom = 16.dp),
+                modifier = Modifier
+                    .wrapContentWidth()
+                    .padding(bottom = 16.dp)
+                    .align(Alignment.CenterHorizontally),
                 text = stringResource(id = R.string.new_numbers_title),
                 style = MaterialTheme.typography.headlineMedium.copy(fontSize = dpToSp(dp = 28.dp))
             )

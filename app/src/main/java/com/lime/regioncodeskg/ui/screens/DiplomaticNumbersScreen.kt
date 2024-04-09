@@ -132,7 +132,7 @@ fun DiplomaticNumbersScreen(state: DiplomaticNumbersState,
                     .align(Alignment.CenterHorizontally)
                     .padding(top = 16.dp),
                 text = state.regionString,
-                style = MaterialTheme.typography.headlineMedium.copy(fontSize = dpToSp(dp = 28.dp)),
+                style = MaterialTheme.typography.headlineMedium.copy(fontSize = dpToSp(dp = 24.dp)),
                 textAlign = TextAlign.Center,
             )
 
