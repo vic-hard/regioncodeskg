@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Коды регионов Кыргызстана</string>
-    <string name="new_numbers_title">С 1 июня 2016 г.</string>
+    <string name="new_numbers_title">С 1 июня 2016 г</string>
     <string name="diplomatic_numbers_title">Дипломатические номера (5 цифр)</string>
     <string name="diplomatic_numbers_title_four_digits">Дипломатические номера (4 цифры)</string>
     <string name="military_numbers">Военные номера</string>
