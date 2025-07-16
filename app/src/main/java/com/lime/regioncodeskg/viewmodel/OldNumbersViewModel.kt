@@ -26,10 +26,8 @@ class OldNumbersViewModel @Inject constructor(
                 }
             }
             else -> {
-                if (state.value.selectedSymbol.isEmpty()) {
-                    _state.update {
-                        it.copy(selectedSymbol = text)
-                    }
+                _state.update {
+                    it.copy(selectedSymbol = text)
                 }
                 val regionString = oldPlatesResolver.resolve(state.value.selectedSymbol)
                 _state.update {
