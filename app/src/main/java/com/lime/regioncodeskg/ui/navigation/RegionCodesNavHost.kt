@@ -25,6 +25,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -66,7 +67,7 @@ fun RegionCodesNavDrawer(
             }
         ) {
             DrawerContent(items = drawerItems, onItemClicked = { destination ->
-                navController.navigate(destination)
+                navController.navigateSingleTop(destination)
                 scope.launch { drawerState.close() }
             })
         }
@@ -137,5 +138,17 @@ private fun RegionCodesNavHost(modifier: Modifier = Modifier,
                 onKeyboardItemClick = viewModel::onKeyboardButtonClick
             )
         }
+    }
+}
+
+fun NavController.navigateSingleTop(route: String) {
+    val currentRoute = this.currentDestination?.route
+    if (currentRoute == route) return
+    this.popBackStack(
+        this.currentDestination?.id ?: this.graph.startDestinationId,
+        true
+    )
+    this.navigate(route) {
+        launchSingleTop = true
     }
 }
