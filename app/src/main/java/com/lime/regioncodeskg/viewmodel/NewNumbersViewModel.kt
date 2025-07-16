@@ -29,8 +29,7 @@ class NewNumbersViewModel @Inject constructor(
             else -> {
                 if (state.value.selectedSymbols.size <= 1) {
                     _state.update {
-                        val list = it.selectedSymbols.toMutableList()
-                        list.add(text)
+                        val list = validateNewNumbersText(text)
                         it.copy(selectedSymbols = list)
                     }
                 }
@@ -41,6 +40,14 @@ class NewNumbersViewModel @Inject constructor(
                     it.copy(regionString = regionString)
                 }
             }
+        }
+    }
+
+    private fun validateNewNumbersText(text: String): List<String> {
+        return when(text) {
+            "0" -> listOf(text)
+            "1", "2", "3", "4", "5", "6", "7", "8", "9" -> listOf("0", text)
+            else -> throw IllegalStateException("new numbers should have only 1-9")
         }
     }
 }
