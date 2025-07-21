@@ -54,6 +54,9 @@ class DiplomaticPlatesResolverImpl(private val resources: Resources) : NumericPl
             "62" -> resources.getString(R.string.icrc)
             "63" -> resources.getString(R.string.aga_khan)
             "64" -> resources.getString(R.string.istc)
+            "65" -> resources.getString(R.string.ifrc)
+            "66" -> resources.getString(R.string.atc)
+            "67" -> resources.getString(R.string.edb)
             "68" -> resources.getString(R.string.rkdf)
             else -> resources.getString(R.string.diplomatic_not_defined)
         }
