@@ -88,6 +88,20 @@
     <string name="lithuania">Republic of Lithuania &#127473;&#127481;</string>
     <string name="netherlands">Kingdom of the Netherlands &#127475;&#127473;</string>
     <string name="belgium">Kingdom of Belgium &#127463;&#127466;</string>
+    <string name="spain">Kingdom of Spain &#127466;&#127480;</string>
+    <string name="armenia">Republic of Armenia &#127462;&#127474;</string>
+    <string name="kz_chuy_ik_naryn">Republic of Kazakhstan &#127472;&#127487; (in Chui, Issyk-Kul and Naryn regions)</string>
+    <string name="brazil">Federative Republic of Brazil &#127463;&#127479;</string>
+    <string name="norway">Kingdom of Norway &#127475;&#127476;</string>
+    <string name="austria">Republic of Austria &#127462;&#127481;</string>
+    <string name="poland">Republic of Poland &#127477;&#127473;</string>
+    <string name="srilanka">Democratic Socialist Republic of Sri Lanka &#127473;&#127472;</string>
+    <string name="estonia">Republic of Estonia &#127466;&#127466;</string>
+    <string name="indonesia">Republic of Indonesia &#127470;&#127465;</string>
+    <string name="jordan">Hashemite Kingdom of Jordan &#127471;&#127476;</string>
+    <string name="bangladesh">People\'s Republic of Bangladesh &#127463;&#127465;</string>
+    <string name="fiji">Republic of Fiji &#127467;&#127471;</string>
+    <string name="kz_talas">Republic of Kazakhstan (on the territory of Talas region) &#127472;&#127487;</string>
 
     <string name="ground_forces">Ground Forces</string>
     <string name="armed_forces">Armed forces</string>

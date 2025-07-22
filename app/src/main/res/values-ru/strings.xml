@@ -83,6 +83,21 @@
     <string name="lithuania">Литовская Республика &#127473;&#127481;</string>
     <string name="netherlands">Королевство Нидерландов &#127475;&#127473;</string>
     <string name="belgium">Королевство Бельгия &#127463;&#127466;</string>
+    <string name="spain">Королевство Испания &#127466;&#127480;</string>
+    <string name="armenia">Республика Армения &#127462;&#127474;</string>
+    <string name="kz_chuy_ik_naryn">Республика Казахстан &#127472;&#127487; (в Чуйской, Иссык-Кульской и Нарынской областях)</string>
+    <string name="brazil">Федеративная Республика Бразилия &#127463;&#127479;</string>
+    <string name="norway">Королевство Норвегия &#127475;&#127476;</string>
+    <string name="austria">Австрийская Республика &#127462;&#127481;</string>
+    <string name="poland">Республика Польша &#127477;&#127473;</string>
+    <string name="srilanka">Демократическая Социалистическая Республика Шри-Ланка &#127473;&#127472;</string>
+    <string name="estonia">Эстонская Республика &#127466;&#127466;</string>
+    <string name="indonesia">Республика Индонезия &#127470;&#127465;</string>
+    <string name="jordan">Иорданское Хашимитское Королевство &#127471;&#127476;</string>
+    <string name="bangladesh">Народная Республика Бангладеш &#127463;&#127465;</string>
+    <string name="fiji">Республика Фиджи &#127467;&#127471;</string>
+    <string name="kz_talas">Республика Казахстан (на территории Таласской области) &#127472;&#127487;</string>
+
     <string name="ground_forces">Сухопутные войска</string>
     <string name="armed_forces">Вооружённые силы</string>
     <string name="ministry_defence">Министерство обороны</string>
