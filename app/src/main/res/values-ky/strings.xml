@@ -26,7 +26,7 @@
     <string name="diplomatic_hint_example_first">Мисал: \'01\' - Түркия &#127481;&#127479;</string>
     <string name="diplomatic_hint_5digits">4 цифрадан турган номер аркылуу Дипломатиялык өкүлчүлүктү аныктоо үчүн алгачкы 4 цифраны киргизүү керек.</string>
     <string name="diplomatic_hint_example_second">Мисал: \'1001\' - Латвия Республикасы &#127473;&#127483;</string>
-    <string name="enter_two_letters">Введите 2 буквы номера</string>
+    <string name="enter_two_letters">Номердин 2 тамгасын киргизиңиз</string>
     <string name="turkey">Түркия &#127481;&#127479;</string>
     <string name="usa">Америка Кошмо Штаттары &#127482;&#127480;</string>
     <string name="china">Кытай &#127464;&#127475;</string>
