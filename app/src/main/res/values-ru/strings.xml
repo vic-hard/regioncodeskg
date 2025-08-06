@@ -17,6 +17,7 @@
     <string name="talas_region">Таласская область</string>
     <string name="chuy_region">Чуйская область</string>
     <string name="issyk_kul_region">Иссык-Кульская область</string>
+    <string name="legalized_cars">Легализованные авто</string>
     <string name="enter_first_letter">Введите первую букву номера</string>
     <string name="diplomatic_not_defined">Код не существует</string>
     <string name="enter_first_two_digits">Введите первые 2 цифры номера</string>
