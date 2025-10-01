@@ -1,6 +1,6 @@
 package com.lime.regioncodeskg.viewmodel
 
-import androidx.lifecycle.ViewModel
+import com.lime.regioncodeskg.data.repository.InAppReviewCountRepository
 import com.lime.regioncodeskg.di.qualifiers.NewNumbersResolver
 import com.lime.regioncodeskg.ui.model.DefineNumbersState
 import com.lime.regioncodeskg.ui.navigation.keyboards.KeyType
@@ -13,8 +13,9 @@ import javax.inject.Inject
 
 @HiltViewModel
 class NewNumbersViewModel @Inject constructor(
-    @NewNumbersResolver private val numericPlatesResolver: NumericPlatesResolver
-) : ViewModel() {
+    @NewNumbersResolver private val numericPlatesResolver: NumericPlatesResolver,
+    inAppReviewCountRepository: InAppReviewCountRepository
+) : BaseNumbersViewModel(inAppReviewCountRepository) {
 
     private val _state: MutableStateFlow<DefineNumbersState> = MutableStateFlow(DefineNumbersState())
     val state = _state.asStateFlow()
@@ -39,7 +40,15 @@ class NewNumbersViewModel @Inject constructor(
                 _state.update {
                     it.copy(regionString = regionString)
                 }
+                validateAndIncreaseInAppUpdateCount()
             }
+        }
+    }
+
+    private fun validateAndIncreaseInAppUpdateCount() {
+        val number = state.value.selectedSymbols.map { it.toInt() }
+        if (numericPlatesResolver.isValidNumber(number)) {
+            increaseInAppReviewCount()
         }
     }
 

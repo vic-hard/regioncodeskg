@@ -1,8 +1,7 @@
 package com.lime.regioncodeskg.viewmodel
 
-import androidx.lifecycle.ViewModel
+import com.lime.regioncodeskg.data.repository.InAppReviewCountRepository
 import com.lime.regioncodeskg.di.qualifiers.Diplomatic4DigitsResolver
-import com.lime.regioncodeskg.di.qualifiers.DiplomaticResolver
 import com.lime.regioncodeskg.ui.model.DiplomaticNumbersState
 import com.lime.regioncodeskg.ui.navigation.keyboards.KeyType
 import com.lime.regioncodeskg.ui.navigation.plates.DiplomaticNumbersType
@@ -15,8 +14,9 @@ import javax.inject.Inject
 
 @HiltViewModel
 class Diplomatic4DigitsViewModel @Inject constructor(
-    @Diplomatic4DigitsResolver private val diplomatic4DigitsResolver: NumericPlatesResolver
-) : ViewModel() {
+    @Diplomatic4DigitsResolver private val numericPlatesResolver: NumericPlatesResolver,
+    inAppReviewCountRepository: InAppReviewCountRepository
+) : BaseNumbersViewModel(inAppReviewCountRepository) {
 
     private val _state: MutableStateFlow<DiplomaticNumbersState> =
         MutableStateFlow(DiplomaticNumbersState(diplomaticNumbersType = DiplomaticNumbersType.FourDigitsType))
@@ -37,13 +37,21 @@ class Diplomatic4DigitsViewModel @Inject constructor(
                         it.copy(selectedSymbols = list)
                     }
                 }
-                val regionString = diplomatic4DigitsResolver.resolve(
+                val regionString = numericPlatesResolver.resolve(
                     state.value.selectedSymbols.map { it.toInt() }
                 )
                 _state.update {
                     it.copy(regionString = regionString)
                 }
+                validateAndIncreaseInAppUpdateCount()
             }
+        }
+    }
+
+    private fun validateAndIncreaseInAppUpdateCount() {
+        val number = state.value.selectedSymbols.map { it.toInt() }
+        if (numericPlatesResolver.isValidNumber(number)) {
+            increaseInAppReviewCount()
         }
     }
 

@@ -62,4 +62,63 @@ class DiplomaticPlatesResolverImpl(private val resources: Resources) : NumericPl
         }
     }
 
+    override fun isValidNumber(numericInput: List<Int>): Boolean {
+        if (numericInput.size > 2)
+            return false
+        if (numericInput.size < 2)
+            return false
+
+        return validNumbers.contains(
+            numericInput.joinToString(separator = "")
+        )
+    }
+
+    private val validNumbers = setOf(
+        "01", // Turkey
+        "02", // The United States of America
+        "03", // China
+        "04", // Russian Federation
+        "05", // Federal Republic of Germany
+        "06", // Iran
+        "07", // Republic of Kazakhstan
+        "08", // Republic of India
+        "09", // Republic of Belarus
+        "10", // Pakistan
+        "11", // Republic of Uzbekistan
+        "12", // Ukraine
+        "13", // Afghanistan
+        "14", // Tajikistan
+        "15", // Japan
+        "16", // Republic of Korea
+        "17", // European Union
+        "18", // French Republic
+        "19", // Azerbaijan
+        "20", // Saudi Arabia
+        "21", // United Kingdom
+        "22", // Qatar
+        "23", // Switzerland
+        "24", // Mongolia
+        "25", // Turkmenistan
+        "26", // Hungary
+        "50", // European Bank for Reconstruction and Development (EBRD)
+        "51", // International Monetary Fund (IMF)
+        "52", // The World Bank
+        "53", // International Television and Radio Company "Mir"
+        "54", // Swiss Cooperation Office
+        "55", // German Society for Technical Cooperation
+        "56", // International Organization for Migration (IOM)
+        "57", // UK Department for International Cooperation
+        "58", // Organization for Security and Co-operation in Europe (OSCE)
+        "59", // Public Fund "SOS - Children's Villages"
+        "60", // Japan International Cooperation Agency (JICA)
+        "61", // Asian Development Bank (ADB)
+        "62", // International Committee of the Red Cross (ICRC)
+        "63", // Aga Khan Development Network
+        "64", // International Science and Technology Center (ISTC)
+        "65", // International Federation of Red Cross and Red Crescent Societies (IFRC)
+        "66", // CIS Anti-Terrorism Center (ATC)
+        "67", // Eurasian Development Bank (EDB)
+        "68"  // Russian-Kyrgyz Development Fund (RKDF)
+    )
+
 }

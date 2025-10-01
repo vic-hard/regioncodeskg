@@ -46,4 +46,48 @@ class Diplomatic4DigitsResolverImpl(private val resources: Resources) : NumericP
             else -> resources.getString(R.string.diplomatic_not_defined)
         }
     }
+
+    override fun isValidNumber(numericInput: List<Int>): Boolean {
+        if (numericInput.size > 4)
+            return false
+        if (numericInput.size < 4)
+            return false
+
+        return validNumbers.contains(
+            numericInput.joinToString(separator = "")
+        )
+    }
+
+    private val validNumbers = setOf(
+        "1001", // Latvia
+        "1101", // Hungary
+        "1201", // Italy
+        "1301", // Canada
+        "1401", // Sweden
+        "1501", // United Kingdom
+        "1601", // Cyprus
+        "1701", // Czech Republic
+        "1801", // Moldova
+        "1901", // Slovak Republic
+        "2001", // Romania
+        "2101", // Lithuania
+        "2201", // Netherlands
+        "2301", // Turkey
+        "2401", // Belgium
+        "2601", // Spain
+        "2701", // Armenia
+        "2801", // KZ Chuy-IK-Naryn
+        "2901", // Brazil
+        "3001", // Norway
+        "3101", // Austria
+        "3201", // Poland
+        "3301", // Sri Lanka
+        "3401", // Belarus
+        "3501", // Estonia
+        "3601", // Indonesia
+        "3701", // Jordan
+        "3801", // Bangladesh
+        "3901", // Fiji
+        "4001"  // KZ Talas
+    )
 }

@@ -27,4 +27,27 @@ class NumericPlatesResolverImpl(private val resources: Resources) : NumericPlate
             else -> resources.getString(R.string.region_not_defined)
         }
     }
+
+    override fun isValidNumber(numericInput: List<Int>): Boolean {
+        if (numericInput.size > 2)
+            return false
+        if (numericInput.size < 2)
+            return false
+
+        return validNumbers.contains(
+            numericInput.joinToString(separator = "")
+        )
+    }
+
+    private val validNumbers = setOf(
+        "01", // Bishkek
+        "02", // Osh
+        "03", // Batken Region
+        "04", // Jalal-Abad Region
+        "05", // Naryn Region
+        "06", // Osh Region
+        "07", // Talas Region
+        "08", // Chuy Region
+        "09"  // Issyk-Kul Region
+    )
 }
