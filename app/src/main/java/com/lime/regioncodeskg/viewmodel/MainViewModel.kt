@@ -9,7 +9,6 @@ import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.drop
 import kotlinx.coroutines.launch
-import timber.log.Timber
 import javax.inject.Inject
 
 @HiltViewModel
@@ -28,7 +27,6 @@ class MainViewModel @Inject constructor(
             inAppReviewCountRepository.getInAppReviewCount()
                 .drop(1) // ignore the first emission (startup value)
                 .collect { countData ->
-                    Timber.d("observeInAppReviewCount() %s", countData.count)
                     if (countData.count >= MAX_COUNT_BEFORE_REVIEW || countData.count < 0) {
                         _reviewTrigger.emit(Unit)
                     }
