@@ -2,6 +2,8 @@ package com.lime.regioncodeskg.di
 
 import android.content.Context
 import android.content.res.Resources
+import com.google.android.play.core.review.ReviewManager
+import com.google.android.play.core.review.ReviewManagerFactory
 import com.lime.regioncodeskg.di.qualifiers.Diplomatic4DigitsResolver
 import com.lime.regioncodeskg.di.qualifiers.DiplomaticResolver
 import com.lime.regioncodeskg.di.qualifiers.NewNumbersResolver
@@ -56,4 +58,8 @@ class AppModule {
         return MilitaryPlatesResolverImpl(resources)
     }
 
+    @Provides
+    fun provideInAppReviewManager(@ApplicationContext context: Context): ReviewManager {
+        return ReviewManagerFactory.create(context)
+    }
 }
