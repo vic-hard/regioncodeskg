@@ -16,11 +16,13 @@ import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.lime.regioncodeskg.utils.dpToSp
-
 
 @Composable
-fun ScreenHeaderWithIcon(text: String, painter: Painter, onIconClick: () -> Unit) {
+fun ScreenHeaderWithIcon(
+    text: String,
+    painter: Painter,
+    onIconClick: () -> Unit
+) {
     Text(
         modifier = Modifier
             .padding(bottom = 16.dp),
@@ -29,7 +31,7 @@ fun ScreenHeaderWithIcon(text: String, painter: Painter, onIconClick: () -> Unit
             append(" ")
             appendInlineContent("inlineContent", "[icon]")
         },
-        style = MaterialTheme.typography.headlineMedium.copy(fontSize = dpToSp(dp = 28.dp)),
+        style = MaterialTheme.typography.titleMedium,
         textAlign = TextAlign.Center,
         inlineContent = createInlineContent(painter, onIconClick)
     )

@@ -64,7 +64,7 @@ fun NewNumbersScreen(
                     .padding(bottom = 16.dp)
                     .align(Alignment.CenterHorizontally),
                 text = stringResource(id = R.string.new_numbers_title),
-                style = MaterialTheme.typography.headlineMedium.copy(fontSize = dpToSp(dp = 28.dp))
+                style = MaterialTheme.typography.headlineMedium.copy(fontSize = dpToSp(dp = 26.dp))
             )
 
             NewNumbersPlates(
@@ -78,7 +78,7 @@ fun NewNumbersScreen(
                     .align(Alignment.CenterHorizontally)
                     .padding(top = 16.dp),
                 text = state.regionString,
-                style = MaterialTheme.typography.headlineMedium.copy(fontSize = dpToSp(dp = 28.dp))
+                style = MaterialTheme.typography.titleLarge
             )
 
         }

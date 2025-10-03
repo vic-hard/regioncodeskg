@@ -9,7 +9,6 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -30,7 +29,6 @@ import com.lime.regioncodeskg.ui.navigation.keyboards.KeyboardItem
 import com.lime.regioncodeskg.ui.navigation.plates.Diplomatic4DigitsPlates
 import com.lime.regioncodeskg.ui.navigation.plates.DiplomaticNumbersPlates
 import com.lime.regioncodeskg.ui.navigation.plates.DiplomaticNumbersType
-import com.lime.regioncodeskg.utils.dpToSp
 
 @Composable
 @Preview
@@ -71,7 +69,7 @@ fun DiplomaticNumbersScreen(state: DiplomaticNumbersState,
         }
 
         Column(modifier = Modifier.weight(1f)) {
-            Row(modifier = Modifier.wrapContentWidth()) {
+            Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.Center) {
 
                 ScreenHeaderWithIcon(
                     text = when(state.diplomaticNumbersType) {
@@ -132,7 +130,7 @@ fun DiplomaticNumbersScreen(state: DiplomaticNumbersState,
                     .align(Alignment.CenterHorizontally)
                     .padding(top = 16.dp),
                 text = state.regionString,
-                style = MaterialTheme.typography.headlineMedium.copy(fontSize = dpToSp(dp = 24.dp)),
+                style = MaterialTheme.typography.titleLarge,
                 textAlign = TextAlign.Center,
             )
 

@@ -2,8 +2,8 @@
 <resources>
     <string name="app_name">Кыргызстандын аймактарынын коддору</string>
     <string name="new_numbers_title">2016-ж. 1-июнунан тартып</string>
-    <string name="diplomatic_numbers_title">Дипломатиялык номерлер (5 цифра)</string>
-    <string name="diplomatic_numbers_title_four_digits">Дипломатиялык номерлер (4 цифра)</string>
+    <string name="diplomatic_numbers_title">Дипломатиялык номерлер\n(5 цифра)</string>
+    <string name="diplomatic_numbers_title_four_digits">Дипломатиялык номерлер\n(4 цифра)</string>
     <string name="military_numbers">Аскердик номерлер</string>
     <string name="app_title">Кыргызстандын аймактарынын коддору</string>
     <string name="region_not_defined">Код жок</string>

@@ -64,7 +64,7 @@ fun OldNumbersScreen(viewModel: OldNumbersViewModel = viewModel()) {
                     .align(Alignment.CenterHorizontally)
                     .padding(top = 16.dp),
                 text = stringResource(id = R.string.enter_first_letter),
-                style = MaterialTheme.typography.headlineSmall
+                style = MaterialTheme.typography.bodyMedium
             )
 
             Text(
@@ -72,7 +72,7 @@ fun OldNumbersScreen(viewModel: OldNumbersViewModel = viewModel()) {
                     .align(Alignment.CenterHorizontally)
                     .padding(top = 16.dp),
                 text = state.regionString,
-                style = MaterialTheme.typography.headlineMedium
+                style = MaterialTheme.typography.titleLarge
             )
 
         }

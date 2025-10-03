@@ -37,7 +37,7 @@ fun DrawerItemComposable(
         Text(
             modifier = Modifier.weight(1f),
             text = stringResource(id = item.titleResId),
-            style = TextStyle(fontSize = 22.sp)
+            style = TextStyle(fontSize = 18.sp)
         )
     }
 }

@@ -10,6 +10,7 @@ import androidx.compose.material3.DrawerValue
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ModalDrawerSheet
 import androidx.compose.material3.ModalNavigationDrawer
 import androidx.compose.material3.Scaffold
@@ -23,7 +24,6 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import androidx.navigation.NavHostController
@@ -40,7 +40,6 @@ import com.lime.regioncodeskg.ui.screens.DiplomaticNumbersScreen
 import com.lime.regioncodeskg.ui.screens.MilitaryNumbersScreen
 import com.lime.regioncodeskg.ui.screens.NewNumbersScreen
 import com.lime.regioncodeskg.ui.screens.OldNumbersScreen
-import com.lime.regioncodeskg.utils.dpToSp
 import com.lime.regioncodeskg.viewmodel.Diplomatic4DigitsViewModel
 import com.lime.regioncodeskg.viewmodel.DiplomaticNumbersViewModel
 import com.lime.regioncodeskg.viewmodel.MilitaryNumbersViewModel
@@ -75,8 +74,8 @@ fun RegionCodesNavDrawer(
         Scaffold(modifier = modifier,topBar = {
             TopAppBar(title = {
                 Text(
-                    text = stringResource(id = R.string.app_title),
-                    fontSize = dpToSp(dp = 24.dp)
+                    style = MaterialTheme.typography.titleSmall,
+                    text = stringResource(id = R.string.app_title)
                 )
             }, modifier = Modifier.fillMaxWidth(), navigationIcon = {
                 IconButton(onClick = {
