@@ -1,5 +1,5 @@
 package com.lime.regioncodeskg.utils
 
 interface OldPlatesResolver {
-    fun resolve(numericInput: String): String
+    fun resolve(input: String): String
 }

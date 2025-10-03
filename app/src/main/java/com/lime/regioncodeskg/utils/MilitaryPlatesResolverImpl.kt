@@ -26,4 +26,25 @@ class MilitaryPlatesResolverImpl(private val resources: Resources) : MilitaryPla
 
     }
 
+    override fun isValidNumber(input: List<String>): Boolean {
+        if (input.size != 2)
+            return false
+
+        return validMilitaryCodes.contains(
+            input.joinToString(separator = "")
+        )
+    }
+
+    private val validMilitaryCodes = setOf(
+        "КА", // Ground Forces
+        "КК", // Armed Forces
+        "КМ", // Ministry of Defence
+        "УГ", // National Guard
+        "ЧК", // Border Guard Service
+        "БА", // Central Office
+        "АС", // Military Court
+        "ЖК", // Ministry of Justice
+        "МЮ"  // Ministry of Justice
+    )
+
 }

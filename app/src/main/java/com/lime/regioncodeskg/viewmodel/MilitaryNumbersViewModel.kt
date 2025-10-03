@@ -1,6 +1,6 @@
 package com.lime.regioncodeskg.viewmodel
 
-import androidx.lifecycle.ViewModel
+import com.lime.regioncodeskg.data.repository.InAppReviewCountRepository
 import com.lime.regioncodeskg.ui.model.MilitaryNumbersState
 import com.lime.regioncodeskg.ui.navigation.keyboards.KeyType
 import com.lime.regioncodeskg.utils.MilitaryPlatesResolver
@@ -12,8 +12,9 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MilitaryNumbersViewModel @Inject constructor(
-    private val militaryPlatesResolver: MilitaryPlatesResolver
-) : ViewModel() {
+    private val militaryPlatesResolver: MilitaryPlatesResolver,
+    inAppReviewCountRepository: InAppReviewCountRepository
+) : BaseNumbersViewModel(inAppReviewCountRepository) {
 
     private val _state: MutableStateFlow<MilitaryNumbersState> = MutableStateFlow(MilitaryNumbersState())
     val state = _state.asStateFlow()
@@ -38,7 +39,13 @@ class MilitaryNumbersViewModel @Inject constructor(
                 _state.update {
                     it.copy(combatArm = combatArm)
                 }
+                validateAndIncreaseInAppUpdateCount(state.value.selectedSymbols)
             }
         }
+    }
+
+    private fun validateAndIncreaseInAppUpdateCount(selectedSymbol: List<String>) {
+        if (militaryPlatesResolver.isValidNumber(selectedSymbol))
+            increaseInAppReviewCount()
     }
 }

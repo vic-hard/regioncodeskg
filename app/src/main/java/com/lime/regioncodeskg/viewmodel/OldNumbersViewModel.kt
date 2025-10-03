@@ -1,6 +1,6 @@
 package com.lime.regioncodeskg.viewmodel
 
-import androidx.lifecycle.ViewModel
+import com.lime.regioncodeskg.data.repository.InAppReviewCountRepository
 import com.lime.regioncodeskg.ui.model.OldNumbersState
 import com.lime.regioncodeskg.ui.navigation.keyboards.KeyType
 import com.lime.regioncodeskg.utils.OldPlatesResolver
@@ -12,8 +12,9 @@ import javax.inject.Inject
 
 @HiltViewModel
 class OldNumbersViewModel @Inject constructor(
-    private val oldPlatesResolver: OldPlatesResolver
-) : ViewModel() {
+    private val oldPlatesResolver: OldPlatesResolver,
+    inAppReviewCountRepository: InAppReviewCountRepository
+) : BaseNumbersViewModel(inAppReviewCountRepository) {
 
     private val _state: MutableStateFlow<OldNumbersState> = MutableStateFlow(OldNumbersState())
     val state = _state.asStateFlow()
@@ -33,6 +34,7 @@ class OldNumbersViewModel @Inject constructor(
                 _state.update {
                     it.copy(regionString = regionString)
                 }
+                increaseInAppReviewCount()
             }
         }
     }

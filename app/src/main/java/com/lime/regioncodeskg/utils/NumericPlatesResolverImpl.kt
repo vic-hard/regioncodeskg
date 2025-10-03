@@ -29,9 +29,7 @@ class NumericPlatesResolverImpl(private val resources: Resources) : NumericPlate
     }
 
     override fun isValidNumber(numericInput: List<Int>): Boolean {
-        if (numericInput.size > 2)
-            return false
-        if (numericInput.size < 2)
+        if (numericInput.size != 2)
             return false
 
         return validNumbers.contains(

@@ -5,8 +5,8 @@ import com.lime.regioncodeskg.R
 
 class OldPlatesResolverImpl(private val resources: Resources) : OldPlatesResolver {
 
-    override fun resolve(numericInput: String): String {
-        return when(numericInput) {
+    override fun resolve(input: String): String {
+        return when(input) {
             "B", "E", "F" -> resources.getString(R.string.bishkek)
             "Z" -> resources.getString(R.string.osh)
             "A" -> resources.getString(R.string.batken_region)
