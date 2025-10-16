@@ -30,7 +30,7 @@ class NewNumbersViewModel @Inject constructor(
             else -> {
                 if (state.value.selectedSymbols.size <= 1) {
                     _state.update {
-                        val list = validateNewNumbersText(text)
+                        val list = processNewNumbersText(text)
                         it.copy(selectedSymbols = list)
                     }
                 }
@@ -52,11 +52,25 @@ class NewNumbersViewModel @Inject constructor(
         }
     }
 
-    private fun validateNewNumbersText(text: String): List<String> {
+    private fun processNewNumbersText(text: String): List<String> {
         return when(text) {
-            "0" -> listOf(text)
-            "1", "2", "3", "4", "5", "6", "7", "8", "9" -> listOf("0", text)
+            "0", "1" -> {
+                addSymbolToCurrentList(text)
+            }
+            "2", "3", "4", "5", "6", "7", "8", "9" -> {
+                if (state.value.selectedSymbols.isEmpty())
+                    listOf("0", text) // Autocomplete all remaining numbers starting with '0'
+                else
+                    addSymbolToCurrentList(text)
+            }
             else -> throw IllegalStateException("new numbers should have only 1-9")
+        }
+    }
+
+    private fun addSymbolToCurrentList(text: String): List<String> {
+        return state.value.selectedSymbols.toMutableList().run {
+            add(text)
+            this
         }
     }
 }

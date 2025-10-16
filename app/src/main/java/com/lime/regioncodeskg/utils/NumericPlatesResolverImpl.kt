@@ -11,19 +11,18 @@ class NumericPlatesResolverImpl(private val resources: Resources) : NumericPlate
             throw IllegalStateException("Numeric numbers can not be longer then 2 numbers")
         if (numericInput.size < 2)
             return ""
-        if (numericInput[0] != 0)
-            return resources.getString(R.string.region_not_defined)
 
-        return when(numericInput[1]) {
-            1 -> resources.getString(R.string.bishkek)
-            2 -> resources.getString(R.string.osh)
-            3 -> resources.getString(R.string.batken_region)
-            4 -> resources.getString(R.string.jalal_abad_region)
-            5 -> resources.getString(R.string.naryn_region)
-            6 -> resources.getString(R.string.osh_region)
-            7 -> resources.getString(R.string.talas_region)
-            8 -> resources.getString(R.string.chuy_region)
-            9 -> resources.getString(R.string.issyk_kul_region)
+        return when(numericInput.joinToString(separator = "")) {
+            "01" -> resources.getString(R.string.bishkek)
+            "02" -> resources.getString(R.string.osh)
+            "03" -> resources.getString(R.string.batken_region)
+            "04" -> resources.getString(R.string.jalal_abad_region)
+            "05" -> resources.getString(R.string.naryn_region)
+            "06" -> resources.getString(R.string.osh_region)
+            "07" -> resources.getString(R.string.talas_region)
+            "08" -> resources.getString(R.string.chuy_region)
+            "09" -> resources.getString(R.string.issyk_kul_region)
+            "10" -> resources.getString(R.string.legalized_cars)
             else -> resources.getString(R.string.region_not_defined)
         }
     }
@@ -46,6 +45,7 @@ class NumericPlatesResolverImpl(private val resources: Resources) : NumericPlate
         "06", // Osh Region
         "07", // Talas Region
         "08", // Chuy Region
-        "09"  // Issyk-Kul Region
+        "09", // Issyk-Kul Region
+        "10"  // Legalized cars
     )
 }
